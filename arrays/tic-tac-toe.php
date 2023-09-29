@@ -25,13 +25,13 @@ function computer_move($board)
 
     return [$row, $col];
 }
-function is_winner($board, $player)
+function is_winner($board, $element)
 {
     for ($i = 0; $i < 3; $i++) {
-        if (($board[$i][0] === $player && $board[$i][1] === $player && $board[$i][2] === $player) ||
-            ($board[0][$i] === $player && $board[1][$i] === $player && $board[2][$i] === $player) ||
-            ($board[0][0] === $player && $board[1][1] === $player && $board[2][2] === $player) ||
-            ($board[0][2] === $player && $board[1][1] === $player && $board[2][0] === $player)) {
+        if (($board[$i][0] === $element && $board[$i][1] === $element && $board[$i][2] === $element) ||
+            ($board[0][$i] === $element && $board[1][$i] === $element && $board[2][$i] === $element) ||
+            ($board[0][0] === $element && $board[1][1] === $element && $board[2][2] === $element) ||
+            ($board[0][2] === $element && $board[1][1] === $element && $board[2][0] === $element)) {
             return true;
         }
     }
