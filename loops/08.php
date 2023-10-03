@@ -1,6 +1,6 @@
 <?php
 class NumberSquare {
-    public static function run() {
+    public static function minmax() {
         echo "Min? ";
         $min = readline();
 
