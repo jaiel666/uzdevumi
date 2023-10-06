@@ -16,14 +16,11 @@ class Movie
 
 function GetPG($movies) {
     $pgMovies = array();
-    $count = count($movies);
-
-    for ($i = 0; $i < $count; $i++) {
-        if ($movies[$i]->rating === "PG") {
-            $pgMovies[] = $movies[$i];
+    foreach ($movies as $movie) {
+        if ($movie->rating === "PG") {
+            $pgMovies[] = $movie;
         }
     }
-
     return $pgMovies;
 }
 
@@ -36,10 +33,9 @@ $movie5 = new Movie("Spider-Man: Into the Spider-Verse", "Columbia Pictures", "P
 $movies = array($movie1, $movie2, $movie3, $movie4, $movie5);
 $pgRatedMovies = GetPG($movies);
 
-$count = count($pgRatedMovies);
-for ($i = 0; $i < $count; $i++) {
-    echo "Title: " . $pgRatedMovies[$i]->title . "\n";
-    echo "Studio: " . $pgRatedMovies[$i]->studio . "\n";
-    echo "Rating: " . $pgRatedMovies[$i]->rating . "\n";
+foreach ($pgRatedMovies as $movie) {
+    echo "Title: " . $movie->title . "\n";
+    echo "Studio: " . $movie->studio . "\n";
+    echo "Rating: " . $movie->rating . "\n";
     echo "------------------------\n";
 }
