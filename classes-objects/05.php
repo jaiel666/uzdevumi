@@ -50,7 +50,6 @@ class Date
 }
 
 $date = new Date(10, 5, 2023);
-
 echo "Initial Date: " . $date->displayDate() . "\n";
 
 $date->setMonth(10);
