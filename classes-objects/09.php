@@ -11,26 +11,16 @@ class BankAccount
         $this->balance = $balance;
     }
 
-    public function show_user_name_and_balance(): string
+    public function show_user_name_and_balance()
     {
-
-        $formattedBalance = number_format($this->balance, 2);
-
-        $result = $this->name . ', $';
-
-        if ($this->balance >= 0) {
-            $result .= $formattedBalance;
-        } else {
-            $result .= '-' . abs($formattedBalance);
-        }
-
-
-        return $result;
+        $formatted_balance = number_format(abs($this->balance), 2);
+        return $this->name . ', $' . $formatted_balance;
     }
 }
 
-$positiveBen = new BankAccount("Benson", 17.25);
-echo $positiveBen->show_user_name_and_balance() . "\n";
 
-$negativeBen = new BankAccount("Benson", -17.5);
-echo $negativeBen->show_user_name_and_balance() . "\n";
+$posBen = new BankAccount("Benson", 17.25);
+echo $posBen->show_user_name_and_balance() . "\n";
+
+$negBen = new BankAccount("Benson", -17.5);
+echo $negBen->show_user_name_and_balance() . "\n";
