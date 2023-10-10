@@ -2,11 +2,11 @@
 
 class Date
 {
-    private $month;
-    private $day;
-    private $year;
+    private int $month;
+    private int $day;
+    private int $year;
 
-    public function __construct($month, $day, $year)
+    public function __construct(int $month, int $day, int $year)
     {
         $this->month = $month;
         $this->day = $day;
