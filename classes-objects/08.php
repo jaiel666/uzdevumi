@@ -26,7 +26,7 @@ class SavingsAccount
         $this->balance += $amount;
     }
 
-    public function addMonthlyInterest(): void
+    public function monthlyInterest(): void
     {
         $monthlyInterestRate = $this->annualInterestRate / 12;
         $monthlyInterest = $this->balance * $monthlyInterestRate;
@@ -65,9 +65,8 @@ for ($month = 1; $month <= $months; $month++) {
     $totalWithdrawals += $withdrawal;
     $savingsAccount->withdraw($withdrawal);
 
-    $savingsAccount->addMonthlyInterest();
+    $savingsAccount->monthlyInterest();
 }
-
 $totalInterestEarned = $savingsAccount->getBalance() - $startingBalance;
 $endingBalance = $savingsAccount->getBalance();
 
