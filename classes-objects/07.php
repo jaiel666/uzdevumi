@@ -7,12 +7,11 @@ class Dog
     private string $mother;
     private string $father;
 
-    public function __construct(string $name, string $sex, string $mother, string $father)
+    public function __construct(string $name, string $sex)
     {
         $this->name = $name;
         $this->sex = $sex;
-        $this->mother = $mother;
-        $this->father = $father;
+
     }
 
 
@@ -52,14 +51,28 @@ class DogTest
 {
     public static function main(): void
     {
-        $max = new Dog("Max", "male", "Lady", "Rocky");
-        $rocky = new Dog("Rocky", "male", "Molly", "Sam");
-        $sparky = new Dog("Sparky", "male", "", "Buster");
-        $buster = new Dog("Buster", "male", "Lady", "Sparky");
-        $sam = new Dog("Sam", "male", "", "");
-        $lady = new Dog("Lady", "female", "", "");
-        $molly = new Dog("Molly", "female", "", "");
-        $coco = new Dog("Coco", "female", "Molly", "Buster");
+
+        $max = new Dog("Max", "male");
+        $rocky = new Dog("Rocky", "male");
+        $sparky = new Dog("Sparky", "male");
+        $buster = new Dog("Buster", "male");
+        $sam = new Dog("Sam", "male");
+        $lady = new Dog("Lady", "female");
+        $molly = new Dog("Molly", "female");
+        $coco = new Dog("Coco", "female");
+
+
+        $max->setMother("Lady");
+        $max->setFather("Rocky");
+
+        $coco->setMother("Molly");
+        $coco->setFather("Buster");
+
+        $rocky->setMother("Molly");
+        $rocky->setFather("Sam");
+
+        $buster->setMother("Lady");
+        $buster->setFather("Sparky");
 
         echo $max->fathersName() . "\n";
         echo $sparky->fathersName() . "\n";
