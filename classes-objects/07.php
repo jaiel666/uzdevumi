@@ -82,7 +82,7 @@ class DogTest
             echo "Coco and Rocky have the same mother.\n";
         } else {
             echo "Coco and Rocky do not have the same mother.\n";
-        }g
+        }
     }
 }
 
