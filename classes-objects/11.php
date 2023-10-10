@@ -64,9 +64,9 @@ function transfer(Account $from, Account $to, float $howMuch): void
     $to->deposit($howMuch);
 }
 
-$accountA = new Account("A", 100.00);
-$accountB = new Account("B", 0.00);
-$accountC = new Account("C", 0.00);
+echo "Starting " . $accountA = new Account("A", 100.00);
+echo "Starting " .$accountB = new Account("B", 0.00);
+echo "Starting " .$accountC = new Account("C", 0.00);
 
 $transferAmount1 = 50.00;
 transfer($accountA, $accountB, $transferAmount1);
