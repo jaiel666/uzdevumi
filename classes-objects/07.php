@@ -7,10 +7,28 @@ class Dog
     private string $mother;
     private string $father;
 
-    public function __construct(string $name, string $sex)
+    public function __construct(string $name, string $sex, string $mother, string $father)
     {
         $this->name = $name;
         $this->sex = $sex;
+        $this->mother = $mother;
+        $this->father = $father;
+    }
+
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setMother(string $mother): void
+    {
+        $this->mother = $mother;
+    }
+
+    public function setFather(string $father): void
+    {
+        $this->father = $father;
     }
 
     public function fathersName(): string
@@ -27,21 +45,6 @@ class Dog
             return $this->mother === $otherDog->mother;
         }
         return false;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setMother(string $mother): void
-    {
-        $this->mother = $mother;
-    }
-
-    public function setFather(string $father): void
-    {
-        $this->father = $father;
     }
 }
 
@@ -79,12 +82,7 @@ class DogTest
             echo "Coco and Rocky have the same mother.\n";
         } else {
             echo "Coco and Rocky do not have the same mother.\n";
-        }
-        echo "------------------------\n";
-        echo $sam->getName() . "\n";
-        echo $lady->getName() . "\n";
-        echo $molly->getName() . "\n";
-
+        }g
     }
 }
 
