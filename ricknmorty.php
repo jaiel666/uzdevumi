@@ -22,7 +22,7 @@ class RickAndMortyVideoStore
             } else {
                 $rating = 'Not rated';
             }
-            echo "Episode {$episodeId}: {$episodeName} - Rating: {$rating}\n";
+            echo "Episode $episodeId: $episodeName - Rating: $rating\n";
         }
         echo "-------------------------------------------------\n";
     }
@@ -36,7 +36,7 @@ class RickAndMortyVideoStore
     {
         echo "--------------RATED EPISODES-----------------------\n";
         foreach ($this->ratings as $episodeId => $rating) {
-            echo "Episode $episodeId - Rating: $rating/10\n";
+            echo "Episode $episodeId: Rating: $rating/10\n";
         }
         echo "---------------------------------------------------\n";
     }
