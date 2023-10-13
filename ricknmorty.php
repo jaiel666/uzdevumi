@@ -47,10 +47,10 @@ class Application
     private RickAndMortyVideoStore $videoStore;
     private array $episodes;
 
-    public function __construct(RickAndMortyVideoStore $videoStore, array $episodes)
+    public function __construct()
     {
-        $this->videoStore = $videoStore;
-        $this->episodes = $episodes;
+        $this->videoStore = new RickAndMortyVideoStore();
+        $this->episodes = $this->videoStore->getEpisodes();
     }
 
     public function run(): void
@@ -93,9 +93,8 @@ class Application
         }
     }
 }
-$videoStore = new RickAndMortyVideoStore();
-$episodes = $videoStore->getEpisodes();
-$application = new Application($videoStore, $episodes);
+
+$application = new Application();
 $application->run();
 
 
