@@ -42,42 +42,58 @@ class RickAndMortyVideoStore
     }
 }
 
-$videoStore = new RickAndMortyVideoStore();
-$episodes = $videoStore->getEpisodes();
+class Application
+{
+    private RickAndMortyVideoStore $videoStore;
+    private array $episodes;
 
-echo "Welcome to Rick and Morty Video Store!\n";
+    public function __construct()
+    {
+        $this->videoStore = new RickAndMortyVideoStore();
+        $this->episodes = $this->videoStore->getEpisodes();
+    }
 
-while (true) {
-    echo "Choose the operation you want to perform:\n";
-    echo "0. Exit\n";
-    echo "1. List Episodes\n";
-    echo "2. Rate an Episode\n";
-    echo "3. Rated Episodes\n";
+    public function run(): void
+    {
+        echo "Welcome to Rick and Morty Video Store!\n";
 
-    $choice = (int)readline("Enter your choice: ");
+        while (true) {
+            echo "Choose the operation you want to perform:\n";
+            echo "0. Exit\n";
+            echo "1. List Episodes\n";
+            echo "2. Rate an Episode\n";
+            echo "3. Rated Episodes\n";
 
-    switch ($choice) {
-        case 0:
-            echo "Bye!\n";
-            exit();
-        case 1:
-            $videoStore->displayEpisodes($episodes);
-            break;
-        case 2:
-            echo "-------------------------------------\n";
-            $episodeId = (int)readline("Enter the Episode ID to rate: ");
-            $rating = (int)readline("Enter your rating (1-10): ");
-            if ($rating >= 1 && $rating <= 10) {
-                $videoStore->rateEpisode($episodeId, $rating);
-            } else {
-                echo "Invalid rating. Please enter a rating between 1 and 10.\n";
+            $choice = (int)readline("Enter your choice: ");
+
+            switch ($choice) {
+                case 0:
+                    echo "Bye!\n";
+                    exit();
+                case 1:
+                    $this->videoStore->displayEpisodes($this->episodes);
+                    break;
+                case 2:
+                    echo "-------------------------------------\n";
+                    $episodeId = (int)readline("Enter the Episode ID to rate: ");
+                    $rating = (int)readline("Enter your rating (1-10): ");
+                    if ($rating >= 1 && $rating <= 10) {
+                        $this->videoStore->rateEpisode($episodeId, $rating);
+                    } else {
+                        echo "Invalid rating. Please enter a rating between 1 and 10.\n";
+                    }
+                    echo "-------------------------------------\n";
+                    break;
+                case 3:
+                    $this->videoStore->displayRatedEpisodes();
+                    break;
+                default:
+                    echo "Invalid choice. Please try again.\n";
             }
-            echo "-------------------------------------\n";
-            break;
-        case 3:
-            $videoStore->displayRatedEpisodes();
-            break;
-        default:
-            echo "Invalid choice. Please try again.\n";
+        }
     }
 }
+
+$application = new Application();
+$application->run();
+
