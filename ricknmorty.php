@@ -35,7 +35,6 @@ class RickAndMortyVideoStore
     public function displayRatedEpisodes(): void
     {
         echo "--------------RATED EPISODES-----------------------\n";
-        echo "Rated Episodes List:\n";
         foreach ($this->ratings as $episodeId => $rating) {
             echo "Episode $episodeId - Rating: $rating/10\n";
         }
