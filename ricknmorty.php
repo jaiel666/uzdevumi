@@ -3,7 +3,7 @@
 class RickAndMortyVideoStore
 {
     private string $apiBaseUrl = 'https://rickandmortyapi.com/api/episode';
-    private array $ratings = [];
+    private array $ratings;
 
     public function getEpisodes(): array
     {
@@ -47,10 +47,10 @@ class Application
     private RickAndMortyVideoStore $videoStore;
     private array $episodes;
 
-    public function __construct()
+    public function __construct(RickAndMortyVideoStore $videoStore, array $episodes)
     {
-        $this->videoStore = new RickAndMortyVideoStore();
-        $this->episodes = $this->videoStore->getEpisodes();
+        $this->videoStore = $videoStore;
+        $this->episodes = $episodes;
     }
 
     public function run(): void
@@ -93,7 +93,10 @@ class Application
         }
     }
 }
-
-$application = new Application();
+$videoStore = new RickAndMortyVideoStore();
+$episodes = $videoStore->getEpisodes();
+$application = new Application($videoStore, $episodes);
 $application->run();
+
+
 
