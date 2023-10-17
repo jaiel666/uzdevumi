@@ -2,20 +2,20 @@
 
 class Application
 {
-    private ApiKey $application;
+    private ApiRequest $application;
 
     public function __construct()
     {
-        $this->application = new ApiKey();
+        $this->application = new ApiRequest();
     }
 
     public function run(): void
     {
         while (true) {
-            echo "Search company data or type 'exit' to quit\n";
+            echo "Search company data or type 'quit' to exit\n";
             $searchTerm = readline("Enter a company name or registration number: ");
 
-            if ($searchTerm === 'exit') {
+            if ($searchTerm === 'quit') {
                 break;
             }
 

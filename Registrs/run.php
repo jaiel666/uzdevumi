@@ -1,5 +1,5 @@
 <?php
-require_once 'ApiKey.php';
+require_once 'ApiRequest.php';
 require_once 'Application.php';
 
 $main = new Application();
